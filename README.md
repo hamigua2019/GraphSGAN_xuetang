@@ -24,6 +24,8 @@ Eval: correct 824 / 1000, Acc: 82.40
 
 参数调整。经过修改LR参数调整，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
 
+可以考虑改进数据集预处理质量，增进模型的表现。本部分工作以后继续开展。
+
 四. 损失分析
 
 loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801 
