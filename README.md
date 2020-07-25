@@ -30,5 +30,5 @@ loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801
 
 loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761
 
-在模型中，有监督的损失占5%以下，无监督的占36%左右，二者占近半，gen的损失也占比近半。
+在模型中，有监督的损失占5%以下，无监督的占36%左右，二者占近半，gen的损失也占比近半。无监督和gen部分还有较高的提升空间，有监督的损失较小，模型拟合较好。
 
