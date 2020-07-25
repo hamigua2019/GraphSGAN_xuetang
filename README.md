@@ -23,3 +23,11 @@ Eval: correct 824 / 1000, Acc: 82.40
 三. 改进工作
 
 参数调整。经过修改LR参数调整，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
+
+四. 损失分析
+loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801 
+
+loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761
+
+在模型中，有监督的损失占5%以下，无监督的占36%左右，二者占近半，gen的损失也占比近半。
+
