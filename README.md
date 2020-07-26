@@ -30,11 +30,17 @@ Eval: correct 824 / 1000, Acc: 82.40
 
 四. 损失分析
 
-loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801 
+选取第一个和最后一个损失进行分析。如下：
 
-loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761
+loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801，可以计算得到，pt_loss = 0.1287
 
-在模型中，有监督的损失占5%以下，无监督的占36%左右，二者占近半，gen的损失也占比近半。无监督和gen部分还有较高的提升空间，有监督的损失较小，模型拟合较好。
+loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以计算得到，pt_loss = 0.16.85
+
+从上述损失分布情况可以看出，
+
+在模型中，有监督的损失占5%以下，无监督的占36%左右，gen的损失占比近半，占比最大，pt的损失占14%左右。
+
+表明，无监督和gen部分还有较高的提升空间，有监督的损失较小拟合较好，pt的损失中等。
 
 五. 实现细节
 
