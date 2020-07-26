@@ -2,6 +2,9 @@ Homework 7
 
 一. GraphSGAN框架理解
 
+
+
+
 本文研究了生成对抗网(GANs)在图半监督学习中的潜力，GraphSGAN是运用对抗生成网络（GAN）对图进行半监督学习的一个新框架。
 
 与GraphGAN相比，加入了半监督学习，从而将性能更加有效的提升。GraphGAN是生成对抗网络模型（Generative Adversarial Network）在图表征学习中的最新进展。GANs最初是为了生成图像而设计的，通过训练两个玩最小-最大游戏的神经网络：判别器discriminator D试图区分真实样本和假样本，生成器generator G试图生成“真实”样本来欺骗判别器discriminator。GraphSGAN则在此基础上加入了半监督学习，通过加入部分人工标记的数据学习特征模型，提升了性能。
@@ -28,7 +31,7 @@ Eval: correct 824 / 1000, Acc: 82.40
    由后面的损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
    LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
 
-2. 可以考虑改进数据集预处理质量，增进模型的表现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续开展。
+2. 可以考虑改进数据集预处理质量，增进模型的表现。本论文是用LINE实现，可以考虑用deepwalk或者NetMF实现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续改进、开展。
 
 四. 损失分析
 
