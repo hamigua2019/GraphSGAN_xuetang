@@ -25,7 +25,7 @@ Eval: correct 824 / 1000, Acc: 82.40
 三. 改进工作
 
 1. 参数调整方面：
-   由后面的损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
+   由后面的损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
    LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
 
 2. 可以考虑改进数据集预处理质量，增进模型的表现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续开展。
@@ -50,7 +50,7 @@ loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以
 
 六. 收获
 
-学会了CPU和CUDA代码转换；python版本问题解决，等。
+学会了CPU和CUDA代码转换；python版本问题解决，等等。
 
 七. 不足与待改进之处
 
