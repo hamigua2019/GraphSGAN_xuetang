@@ -51,7 +51,7 @@ class GraphSGAN(object):
         logz_label, logz_unlabel, logz_fake = log_sum_exp(output_label), log_sum_exp(output_unlabel), log_sum_exp(output_fake) # log ∑e^x_i
         prob_label = torch.gather(output_label, 1, y.unsqueeze(1)) # log e^x_label = x_label 
         loss_supervised = -torch.mean(prob_label) + torch.mean(logz_label)
-        loss_unsupervised = 0.5 * (-torch.mean(logz_unlabel) + torch.mean(F.softplus(logz_unlabel))  + # real_data: log Z/(1+Z)
+        loss_unsupervised = 0.3 * (-torch.mean(logz_unlabel) + torch.mean(F.softplus(logz_unlabel))  + # real_data: log Z/(1+Z)
                             torch.mean(F.softplus(logz_fake)) ) # fake_data: log 1/(1+Z)
         entropy = -torch.mean(F.softmax(output_unlabel, dim = 1) * F.log_softmax(output_unlabel, dim = 1))
         pt = pull_away_term(mom_un)
