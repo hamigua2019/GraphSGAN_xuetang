@@ -12,6 +12,8 @@ Homework 7
 
 模型使用500个节点的early stop来训练模型进行验证(Cora上平均20个epoch, Citeseer上平均35个epoch)。每个epoch包含100批，批大小为64。该方法的性能明显优于所有基于正则化和嵌入的方法，也优于Chebyshev和graph convolution networks (GCN)，同时也略优于GCN 注意力模型(GAT)。与基于卷积的方法相比，GraphSGAN对标注数据更加敏感，因此可以观察到较大的方差。
 
+GraphSGAN的内存消耗情况。由于GCN不能处理大规模网络，我们在实践中检查了GraphSGAN的内存消耗情况。GPU已经成为深度学习算法的标准平台。GPU上的内存与主内存相比通常是非常有限的。我们比较了来自不同类别的四种代表性算法的GPU内存消耗。标签传播不需要GPU，我们在CPU上显示结果，以便比较。对于小数据集，GraphSGAN由于结构最复杂，占用的空间最大。但对于大型数据集，GraphSGAN使用的GPU内存最少。LP通常通过求解方程来实现，其空间复杂度为O(N2)。这里我们使用“传播实现”以节省空间。、GCN需要全批处理训练，不能处理有数百万节点的图。通过对Planetoid和GraphSGAN进行小批量训练，使空间消耗与节点数量无关。DIEL数据集中的高维特征也具有挑战性。Planetoid使用稀疏存储来处理稀疏特性，GraphSGAN使用截断的SVD来降低维数。
+
 二. 作业复现结果：
 
 Eval: correct 824 / 1000, Acc: 82.40
