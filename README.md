@@ -50,7 +50,7 @@ loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以
 
 * 图神经网络工具PyTorch Geometric (PyG)运用，performance是84.2%。
 
-4. 其他模型改进。
+4. 其他模型改进方法。
 
 *  如老师提示，还有集成学习、AutoML及其他高级图神经网络框架可以运用，留待以后继续学习改进。
 
