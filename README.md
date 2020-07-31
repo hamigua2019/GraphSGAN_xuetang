@@ -20,19 +20,37 @@ Homework 7 (2020.7.30)
 
 Eval: correct 824 / 1000, Acc: 82.40
 
-三. 模型改进
+三. 损失分析
 
-1. 参数调整后，提高了0.6%的performance：
+选取第一个和最后一个损失进行分析。如下：
+
+loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801，可以计算得到，pt_loss = 0.1287
+
+loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以计算得到，pt_loss = 0.16.85
+
+从上述损失分布情况可以看出，
+
+在模型中，有监督的损失loss_supervised占5%以下，无监督的损失loss_unsupervised占36%左右，loss_gen的损失占比近半，占比最大，pt_loss的损失占14%左右。
+
+表明，无监督loss_unsupervised和loss_gen部分还有较高的提升空间，有监督的损失较小拟合较好，pt_loss的损失中等。
+
+四. 模型改进
+
+1. 参数调整后，performance达到83%，提高了0.6%。
 
    由损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
    LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化，因此不做改动。
    
 2. 数据集预处理工具改进。
 
-   运用，
+   运用原cora数据集而非经过加工后的cora数据集和GCN模型，performance为84.4%，比前述佳。
+   
+   代码已附上。
+   
+3. 
 
 
-
+感谢老师的批阅，请多多批评指正，再次感谢：）
 
 
 Homework 7 （2020.7.25）
@@ -59,10 +77,25 @@ Eval: correct 824 / 1000, Acc: 82.40
 
 结果在论文区间。
 
-三. 改进工作
+三. 损失分析
 
-1. 参数调整方面：
-   由后面的损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
+选取第一个和最后一个损失进行分析。如下：
+
+loss_supervised = 0.0026, loss_unsupervised = 0.3886, loss_gen = 0.4801，可以计算得到，pt_loss = 0.1287
+
+loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以计算得到，pt_loss = 0.16.85
+
+从上述损失分布情况可以看出，
+
+在模型中，有监督的损失loss_supervised占5%以下，无监督的损失loss_unsupervised占36%左右，loss_gen的损失占比近半，占比最大，pt_loss的损失占14%左右。
+
+表明，无监督loss_unsupervised和loss_gen部分还有较高的提升空间，有监督的损失较小拟合较好，pt_loss的损失中等。
+
+四. 改进工作
+
+1. 参数调整使performance提高0.6%。
+
+   由损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高,由82.4%的准确率提高到83%。
    LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
 
 2. 可以考虑改进数据集预处理质量，增进模型的表现。本论文是用LINE实现，可以考虑用deepwalk或者NetMF尝试实现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续改进、开展。
