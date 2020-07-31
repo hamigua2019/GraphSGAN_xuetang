@@ -44,13 +44,15 @@ loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以
    
 2. 数据集选择及预处理工具改进。
 
-*  运用原cora数据集而非经过加工后的cora数据集和GCN模型，performance为84.4%，比前述佳。代码已附。
-   
-*  运用
-   运用原cora数据集而非经过加工后的cora数据集和GCN模型，performance为84.4%，比前述佳。代码已附。
-   
-3. 
+*  运用原cora数据集而非经过加工后的cora数据集和GCN模型，performance为84.6%，比前述佳。代码已附。
+     
+3. 模型升级。
 
+* 图神经网络工具PyTorch Geometric (PyG)运用，performance是84.2%。
+
+4. 其他模型改进。
+
+*  如老师提示，还有集成学习、AutoML及其他高级图神经网络框架可以运用，留待以后继续学习改进。
 
 感谢老师的批阅，请多多批评指正，再次感谢：）
 
