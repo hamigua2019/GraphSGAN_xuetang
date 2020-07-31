@@ -1,4 +1,19 @@
-Homework 7
+Homework 7 (2020.7.30)
+
+一. 论文阅读与GraphSGAN
+
+在本文的框架出现之前，运用图深度学习进行节点分类的框架是无监督学习的GCN、GAT、GraphGAN。它们在cora数据集上准确率表现分别为80.1 ± 0.5、83.0 ± 0.7、
+
+如果对图节点分类加入半监督学习，通过半监督学习提生生成器的performance，从而通过博弈提高判别器的performance，是否有利于图节点分类performance的提高？
+
+答案是肯定的。
+
+在GraphGAN框架中加入了semi，构成了GraphSGAN框架，
+
+
+
+
+Homework 7 （2020.7.25）
 
 一. GraphSGAN框架理解
 
