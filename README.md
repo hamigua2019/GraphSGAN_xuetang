@@ -44,18 +44,23 @@ loss_supervised = 0.0041, loss_unsupervised = 0.3513, loss_gen = 0.4761，可以
 
 *  当lr参数提高由0.003到0.004时，performance反而变低；降低到0.002，performance无变化，因此lr不做改动。
    
-2. 数据集选择及预处理工具改进。
+2. 数据集选择及模型升级。
 
-*  运用原cora数据集而非经过加工后的cora数据集和GCN模型，performance为84.6%，比前述佳。代码已附。
-     
-3. 模型升级。
+*  LiuYuhang运用原cora数据集而非经过加工后的cora数据集和GCN模型，以及运用图神经网络工具PyTorch Geometric (PyG)，performance是84.4%，代码已附，见github文件包GCN_PyG。
 
-* 图神经网络工具PyTorch Geometric (PyG)运用，performance是84.2%。
-
-4. 其他模型改进方法。
+3. 其他模型改进方法。
 
 *  如老师提示，还有集成学习、AutoML及其他高级图神经网络框架可以运用，留待以后继续学习改进。
 
 感谢老师的批阅，请多多批评指正，再次感谢：）
+
+参考资料：
+
+1. Ming Ding, Jie Tang, and Jie Zhang. 2018. Semi-supervised Learning on Graphs with Generative Adversarial Nets . In The 27th ACM International Conference on Information and Knowledge Management (CIKM ’18), October 22–26, 2018, Torino, Italy. ACM, New York, NY, USA, 10 pages.
+
+2. Hongwei Wang, Jia Wang, Jialin Wang, Miao Zhao, Weinan Zhang, Fuzheng Zhang, Xing Xie and Minyi Guo. 2017. GraphGAN: Graph Representation Learning with Generative Adversarial Nets.
+
+3. LiuYuhang，GNN综述阅读报告，https://github.com/LYuhang/GNN_Review
+
 
 
