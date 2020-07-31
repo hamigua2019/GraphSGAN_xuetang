@@ -2,13 +2,35 @@ Homework 7 (2020.7.30)
 
 一. 论文阅读与GraphSGAN
 
-在本文的框架出现之前，运用图深度学习进行节点分类的框架是无监督学习的GCN、GAT、GraphGAN。它们在cora数据集上准确率表现分别为80.1 ± 0.5、83.0 ± 0.7、
+在本文的框架出现之前，运用图深度学习进行节点分类的框架是无监督学习的GCN、GAT，它们在cora数据集上准确率表现分别为80.1 ± 0.5、83.0 ± 0.7，具有报错的表现，后来又提出了加入了生成对抗网络GAN的框架加入了GraphGAN，该框架在cora的表现论文中未给出，给出的是其他数据集。
 
-如果对图节点分类加入半监督学习，通过半监督学习提生生成器的performance，从而通过博弈提高判别器的performance，是否有利于图节点分类performance的提高？
+以上框架都是基于无监督的基础，设想如果对图节点分类加入半监督学习，通过半监督学习提生生成器的performance，从而通过博弈提高判别器的performance，是否有利于图节点分类performance的提高？
 
 答案是肯定的。
 
-在GraphGAN框架中加入了semi，构成了GraphSGAN框架，
+在GraphGAN框架中加入了半监督学习Semi-supervised Learning ，构成了GraphSGAN框架，在cora数据集上performance达到83.0 ± 1.3，比GAT提高了0.6%，在Citeseer上更是提高了1.7%。
+
+半监督学习performance提高原动力来自于，生成的假样本具有已标记样本的performance，从而在博弈中提高了判别器对真实样本的判别能力。
+
+二. 论文与框架实现
+
+本模型时间复杂度较低，训练时间较短。
+
+准确率为82.4%。论文中是83±1.3%。基本符合论文中的描述。
+
+Eval: correct 824 / 1000, Acc: 82.40
+
+三. 模型改进
+
+1. 参数调整后，提高了0.6%的performance：
+
+   由损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
+   LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化，因此不做改动。
+   
+2. 数据集预处理工具改进。
+
+   运用，
+
 
 
 
@@ -43,7 +65,7 @@ Eval: correct 824 / 1000, Acc: 82.40
    由后面的损失分析可以看出，loss_unsupervised较大，因此我们将原权重参数的子参数 mean(logz_unlabel)由0.5进一步减小到0.3，得到performance的提高。由82.4%的准确率提高到83%。
    LR参数调整方面，提高lr=0.004，performance反而变低，降低lr到0.002，performance无变化。
 
-2. 可以考虑改进数据集预处理质量，增进模型的表现。本论文是用openNE实现，可以考虑用deepwalk或者NetMF尝试实现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续改进、开展。
+2. 可以考虑改进数据集预处理质量，增进模型的表现。本论文是用LINE实现，可以考虑用deepwalk或者NetMF尝试实现。本部分工作由于时间分配关系，以及水平关系尚未进行，以后再继续改进、开展。
 
 四. 损失分析
 
